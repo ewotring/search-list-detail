@@ -2,22 +2,34 @@ import React, { Component } from 'react';
 import Detail from './detail';
 
 class List extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      items: [],
-      item: [],
-      showDetail: false
-    };
-    // console.log(this.props.items)
-    // console.log(this.props)
-    // this.handleClick = this.handleClick.bind(this);
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     // items: [],
+  //     // item: [],
+  //     // showDetail: true,
+  //     // showList: false
+  //   };
+  //   // console.log(this.props.items)
+  //   // console.log(this.props)
+  //   // this.handleClick = this.handleClick.bind(this);
+  // }
 
   // componentDidMount() {
-    // this.setState({
-    //   items:
-    // })
+  //   this.setState({
+  //     items: this.props.items//,
+  //     // showDetail: this.props.showDetail,
+  //     // showList: this.props.showList
+  //   })
+  // }
+
+  // componentDidUpdate(prevState) {
+  //   if (this.state.List !== prevState.showList) {
+  //     this.setState({
+  //       showDetail: false,
+  //       showList: true
+  //     })
+  //   }
   // }
 
   // componentDidMount() {
@@ -39,24 +51,27 @@ class List extends Component {
   //     )
   // }
 
-  handleClick = item => {
-    // event.preventDefault();
-    console.log(item)
-    console.log('list item clicked')
-    // console.log(this.key)
-    // console.log(event.target)
-    // console.log(event.target.value)
-    this.setState({
-      item: item,
-      showDetail: true
-    })
+  // handleClick = item => {
+  //   // event.preventDefault();
+  //   // console.log(item)
+  //   // console.log('list item clicked')
+  //   // console.log(this.key)
+  //   // console.log(event.target)
+  //   // console.log(event.target.value)
+  //   this.setState({
+  //     item: item,
+  //     // showDetail: true,
+  //     showList: false
+  //   })
 
-  }
+  // }
 
   render() {
-    const items = this.props.items;
-    const item = this.state.item;
-    if (!this.state.showDetail) {
+    // console.log(this.props.items)
+    // console.log(this.state.items)
+    let items = this.props.items;
+    const item = this.props.item;
+    if (this.props.showList) {
       return (
         <ul>
           {items.map(item => (
@@ -64,7 +79,7 @@ class List extends Component {
               key={item.inspection_id}
               onClick={event => {
                 event.preventDefault();
-                this.handleClick(item)
+                this.props.onClick(item)
               }
               }
             >

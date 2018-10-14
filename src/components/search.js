@@ -6,9 +6,11 @@ class Search extends Component {
     super(props);
     this.state = {
       items: [],
+      item: [],
       query: '',
       suggestions: [],
-      showList: false
+      showList: true//,
+      // showDetail: false
     }
     // console.log(this.props.items)
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -42,7 +44,8 @@ class Search extends Component {
           return item.dba_name.toLowerCase().includes(inputValue)
         }
       ),
-      showList: true
+      showList: true//,
+      // showDetail: false
     })
     // return this.state.suggestions.filter(
     //   item => {
@@ -54,10 +57,25 @@ class Search extends Component {
     // )
   }
 
+  handleClick = item => {
+    // event.preventDefault();
+    // console.log(item)
+    // console.log('list item clicked')
+    // console.log(this.key)
+    // console.log(event.target)
+    // console.log(event.target.value)
+    this.setState({
+      item: item,
+      // showDetail: true,
+      showList: false
+    })
+
+  }
+
   render() {
-    // console.log(this.state.query)
-    // console.log(this.state.items)
-    // console.log(this.state.suggestions)
+    console.log(this.state.query)
+    console.log(this.state.items)
+    console.log(this.state.suggestions)
     // if(!this.state.showList) {
     //   return (
     //     <div>
@@ -76,6 +94,7 @@ class Search extends Component {
     //     </div>
     //   )
     // } else {
+      // console.log(this.state.showList)
       return (
         <div>
           <form onSubmit={
@@ -95,7 +114,13 @@ class Search extends Component {
               value="Search"
             />
           </form>
-          <List items={this.state.suggestions} />
+          <List
+            items={this.state.suggestions}
+            showList={this.state.showList}
+            onClick={this.handleClick}
+            item={this.state.item}
+            // showDetail={this.state.showDetail}
+          />
         </div>
       )
     // }

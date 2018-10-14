@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 
 class Detail extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      item: []
-    }
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     item: []
+  //   }
+  // }
 
-  componentDidMount() {
-    this.setState({
-      item: this.props.item
-    })
-  }
+  // componentDidMount() {
+  //   this.setState({
+  //     item: this.props.item
+  //   })
+  // }
 
   render() {
-    console.log(this.state.item)
-    const item = this.state.item
+    console.log(this.props.item)
+    const item = this.props.item
     return(
       <div>
         <div>Business name: {item.dba_name}</div><br/><br/>
