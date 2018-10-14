@@ -30,8 +30,9 @@ class Search extends Component {
     // this.getSuggestions(this.state.query)
   }
 
-  getSuggestions = event => {
-    event.preventDefault();
+  // getSuggestions = event => {
+  getSuggestions = () => {
+    // event.preventDefault();
     // console.log(this.state.suggestions)
     // console.log(this.state.query)
     const inputValue = this.state.query.trim().toLowerCase()
@@ -62,14 +63,14 @@ class Search extends Component {
     //     <div>
     //       <form onSubmit={this.getSuggestions}>
     //         <input
-    //           placeholder="Start typing a business name"
+    //           placeholder="Search term"
     //           ref={input => this.search = input}
     //           onChange={this.handleInputChange}
     //         />
     //         <p>{this.state.query}</p>
     //         <input
     //           type="submit"
-    //           value="Submit"
+    //           value="Search"
     //         />
     //       </form>
     //     </div>
@@ -78,20 +79,20 @@ class Search extends Component {
       return (
         <div>
           <form onSubmit={
-            // event => {
-            // event.preventDefault();
-            this.getSuggestions
-          // }
+            event => {
+            event.preventDefault();
+            this.getSuggestions()
+          }
             }>
             <input
-              placeholder="Start typing a business name"
+              placeholder="Search"
               ref={input => this.search = input}
               onChange={this.handleInputChange}
             />
-            <p>{this.state.query}</p>
+            {/* <p>{this.state.query}</p> */}
             <input
               type="submit"
-              value="Submit"
+              value="Search"
             />
           </form>
           <List items={this.state.suggestions} />
