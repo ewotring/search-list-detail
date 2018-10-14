@@ -7,7 +7,8 @@ class Search extends Component {
     this.state = {
       items: [],
       query: '',
-      suggestions: []
+      suggestions: [],
+      showList: false
     }
     // console.log(this.props.items)
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -17,7 +18,7 @@ class Search extends Component {
   componentDidMount() {
     this.setState({
       items: this.props.items,
-      suggestions: this.props.items
+      suggestions: []
     })
     // console.log(this.state.items)
   }
@@ -35,11 +36,12 @@ class Search extends Component {
     // console.log(this.state.query)
     const inputValue = this.state.query.trim().toLowerCase()
     this.setState({
-      suggestions: this.state.suggestions.filter(
+      suggestions: this.state.items.filter(
         item => {
           return item.dba_name.toLowerCase().includes(inputValue)
         }
-      )
+      ),
+      showList: true
     })
     // return this.state.suggestions.filter(
     //   item => {
@@ -55,23 +57,47 @@ class Search extends Component {
     // console.log(this.state.query)
     // console.log(this.state.items)
     // console.log(this.state.suggestions)
-    return (
-      <div>
-        <form onSubmit={this.getSuggestions}>
-          <input
-            placeholder="Start typing a business name"
-            ref={input => this.search = input}
-            onChange={this.handleInputChange}
-          />
-          <p>{this.state.query}</p>
-          <input
-            type="submit"
-            value="Submit"
-          />
-        </form>
-        <List items={this.state.suggestions} />
-      </div>
-    )
+    // if(!this.state.showList) {
+    //   return (
+    //     <div>
+    //       <form onSubmit={this.getSuggestions}>
+    //         <input
+    //           placeholder="Start typing a business name"
+    //           ref={input => this.search = input}
+    //           onChange={this.handleInputChange}
+    //         />
+    //         <p>{this.state.query}</p>
+    //         <input
+    //           type="submit"
+    //           value="Submit"
+    //         />
+    //       </form>
+    //     </div>
+    //   )
+    // } else {
+      return (
+        <div>
+          <form onSubmit={
+            // event => {
+            // event.preventDefault();
+            this.getSuggestions
+          // }
+            }>
+            <input
+              placeholder="Start typing a business name"
+              ref={input => this.search = input}
+              onChange={this.handleInputChange}
+            />
+            <p>{this.state.query}</p>
+            <input
+              type="submit"
+              value="Submit"
+            />
+          </form>
+          <List items={this.state.suggestions} />
+        </div>
+      )
+    // }
   }
 }
 

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Autosuggest from 'react-autosuggest';
 
-const getSuggestionValue = suggestion => suggestion.aka_name;
+const getSuggestionValue = suggestion => suggestion.dba_name;
 const renderSuggestion = suggestion => (
   <div>
-    {suggestion.aka_name}
+    {suggestion.dba_name}
   </div>
 );
 
@@ -12,7 +12,7 @@ const getSuggestions = value => {
   console.log(this.state.suggestedData)
   const inputValue = value.trim().toLowerCase()
   return this.state.suggestedData.filter(item =>
-    item.aka_name.toLowerCase().includes(inputValue)
+    item.dba_name.toLowerCase().includes(inputValue)
   )
 }
 
@@ -72,21 +72,21 @@ class AutoSuggest extends Component {
     // console.log(this.state)
     // console.log(inputProps)
     // console.log(suggestions)
-    return <div>Hi there</div>
-    // if (suggestions) {
-    //   console.log(suggestions)
-    //   return (
-    //     <Autosuggest>
-    //       suggestions={this.state.suggestions}
-    //       onSuggestionsFetchRequested = {this.onSuggestionsFetchRequested}
-    //       onSuggestionsClearRequested = {this.onSuggestionsClearRequested}
-    //       getSuggestionValue = {getSuggestionValue}
-    //       renderSuggestion = {renderSuggestion}
-    //       inputProps = {inputProps}
-    //       {/* shouldRenderSuggestions = {this.shouldRenderSuggestions} */}
-    //     </Autosuggest>
-    //   )
-    // } else return <div>Hi there</div>
+    // return <div>Hi there</div>
+    if (suggestions) {
+      console.log(suggestions)
+      return (
+        <Autosuggest>
+          suggestions={this.state.suggestions}
+          onSuggestionsFetchRequested = {this.onSuggestionsFetchRequested}
+          onSuggestionsClearRequested = {this.onSuggestionsClearRequested}
+          getSuggestionValue = {getSuggestionValue}
+          renderSuggestion = {renderSuggestion}
+          inputProps = {inputProps}
+          {/* shouldRenderSuggestions = {this.shouldRenderSuggestions} */}
+        </Autosuggest>
+      )
+    } else return <div>Hi there</div>
   }
 }
 

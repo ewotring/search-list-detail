@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
+import Detail from './detail';
 
 class List extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: []
+      items: [],
+      item: [],
+      showDetail: false
     };
     // console.log(this.props.items)
     // console.log(this.props)
-    this.handleClick = this.handleClick.bind(this);
+    // this.handleClick = this.handleClick.bind(this);
   }
 
   // componentDidMount() {
@@ -36,20 +39,34 @@ class List extends Component {
   //     )
   // }
 
-  handleClick = event => {
-    event.preventDefault();
+  handleClick = item => {
+    // event.preventDefault();
+    console.log(item)
     console.log('list item clicked')
+    // console.log(this.key)
+    // console.log(event.target)
+    // console.log(event.target.value)
+    this.setState({
+      item: item,
+      showDetail: true
+    })
 
   }
 
   render() {
     const items = this.props.items;
+    const item = this.state.item;
+    if (!this.state.showDetail) {
       return (
         <ul>
           {items.map(item => (
             <li
               key={item.inspection_id}
-              onClick={this.handleClick}
+              onClick={event => {
+                event.preventDefault();
+                this.handleClick(item)
+              }
+              }
             >
               <div>
                 {item.dba_name}
@@ -61,6 +78,13 @@ class List extends Component {
           ))}
         </ul>
       )
+    } else {
+      return (
+        <Detail
+          item={item}
+        />
+      )
+    }
   }
 }
 
