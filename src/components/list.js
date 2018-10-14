@@ -6,7 +6,8 @@ class List extends Component {
     this.state = {
       items: []
     };
-    // console.log(this.props.items)
+    console.log(this.props.items)
+    console.log(this.props)
   }
 
   componentDidMount() {

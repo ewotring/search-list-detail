@@ -30,7 +30,7 @@ class Search extends Component {
   getSuggestions = event => {
     event.preventDefault();
     // console.log(this.state.suggestions)
-    console.log(this.state.query)
+    // console.log(this.state.query)
     const inputValue = this.state.query.trim().toLowerCase()
     this.setState({
       suggestions: this.state.suggestions.filter(
@@ -50,9 +50,9 @@ class Search extends Component {
   }
 
   render() {
-    console.log(this.state.query)
-    console.log(this.state.items)
-    console.log(this.state.suggestions)
+    // console.log(this.state.query)
+    // console.log(this.state.items)
+    // console.log(this.state.suggestions)
     return (
       <div>
         <form onSubmit={this.getSuggestions}>
@@ -67,7 +67,7 @@ class Search extends Component {
             value="Submit"
           />
         </form>
-        <List items={this.state.items} />
+        <List items={this.state.suggestions} />
       </div>
     )
   }
