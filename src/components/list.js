@@ -4,15 +4,15 @@ class List extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      error: null,
-      isLoaded: false,
       items: []
     };
-    console.log(this.props)
+    console.log(this.props.items)
   }
 
   componentDidMount() {
-    // console.log(props)
+    // this.setState({
+    //   items:
+    // })
   }
 
   // componentDidMount() {
@@ -35,12 +35,7 @@ class List extends Component {
   // }
 
   render() {
-    const { error, isLoaded, items } = this.state;
-    if (error) {
-      return <div>Error: {error.message}</div>;
-    } else if (!isLoaded) {
-      return <div>Loading...</div>
-    } else {
+    const items = this.props.items;
       return (
         <ul>
           {items.map(item => (
@@ -55,7 +50,6 @@ class List extends Component {
           ))}
         </ul>
       )
-    }
   }
 }
 

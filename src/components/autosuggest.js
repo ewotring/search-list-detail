@@ -8,45 +8,31 @@ const renderSuggestion = suggestion => (
   </div>
 );
 
+const getSuggestions = value => {
+  console.log(this.state.suggestedData)
+  const inputValue = value.trim().toLowerCase()
+  return this.state.suggestedData.filter(item =>
+    item.aka_name.toLowerCase().includes(inputValue)
+  )
+}
+
 class AutoSuggest extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      error: null,
-      isLoaded: false,
       value: '',
       suggestions: [],
       suggestedData: []
     };
+    console.log(this.props.items)
   }
 
-  // componentDidMount() {
-  //   // console.log(this)
-  //   fetch("https://data.cityofchicago.org/resource/cwig-ma7x.json")
-  //     .then(res => res.json())
-  //     .then(
-  //       (result) => {
-  //         // console.log(result)
-  //         this.setState({
-  //           isLoaded: true,
-  //           suggestedData: result
-  //         });
-  //       },
-  //       (error) => {
-  //         this.setState({
-  //           isLoaded: true,
-  //           error
-  //         });
-  //       }
-  //     )
-  // }
-
-  getSuggestions = value => {
-    const inputValue = value.trim().toLowerCase()
-    return this.state.suggestedData.filter(item =>
-      item.aka_name.toLowerCase().includes(inputValue)
-    )
+  componentDidMount() {
+    this.setState({
+      suggestedData: this.props.items
+    })
   }
+
 
   onChange = (event, { newValue }) => {
     this.setState({
@@ -56,7 +42,7 @@ class AutoSuggest extends Component {
 
   onSuggestionsFetchRequested = ({ value }) => {
     this.setState({
-      suggestions: this.getSuggestions(value)
+      suggestions: getSuggestions(value)
     })
   }
 
@@ -68,10 +54,14 @@ class AutoSuggest extends Component {
 
   // onSuggestionSelected
 
-  shouldRenderSuggestions = () => true
+  // shouldRenderSuggestions = () => true
 
   render() {
+    console.log(this.state)
     const { value, suggestions } = this.state
+    // const value = 'swiss cheese'
+    // const suggestions = ['oranges', 'apples']
+    console.log(suggestions);
     const inputProps = {
       placeholder: 'Type part of business name',
       value,
@@ -84,18 +74,19 @@ class AutoSuggest extends Component {
     // console.log(suggestions)
     return <div>Hi there</div>
     // if (suggestions) {
+    //   console.log(suggestions)
     //   return (
     //     <Autosuggest>
-    //       suggestions = {suggestions}
+    //       suggestions={this.state.suggestions}
     //       onSuggestionsFetchRequested = {this.onSuggestionsFetchRequested}
     //       onSuggestionsClearRequested = {this.onSuggestionsClearRequested}
     //       getSuggestionValue = {getSuggestionValue}
     //       renderSuggestion = {renderSuggestion}
     //       inputProps = {inputProps}
-    //       shouldRenderSuggestions = {this.shouldRenderSuggestions}
+    //       {/* shouldRenderSuggestions = {this.shouldRenderSuggestions} */}
     //     </Autosuggest>
     //   )
-    // }
+    // } else return <div>Hi there</div>
   }
 }
 
