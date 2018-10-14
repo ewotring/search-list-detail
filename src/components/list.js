@@ -6,15 +6,16 @@ class List extends Component {
     this.state = {
       items: []
     };
-    console.log(this.props.items)
-    console.log(this.props)
+    // console.log(this.props.items)
+    // console.log(this.props)
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  componentDidMount() {
+  // componentDidMount() {
     // this.setState({
     //   items:
     // })
-  }
+  // }
 
   // componentDidMount() {
   //   fetch("https://data.cityofchicago.org/resource/cwig-ma7x.json")
@@ -35,14 +36,23 @@ class List extends Component {
   //     )
   // }
 
+  handleClick = event => {
+    event.preventDefault();
+    console.log('list item clicked')
+
+  }
+
   render() {
     const items = this.props.items;
       return (
         <ul>
           {items.map(item => (
-            <li key={item.inspection_id}>
+            <li
+              key={item.inspection_id}
+              onClick={this.handleClick}
+            >
               <div>
-                {item.aka_name}
+                {item.dba_name}
               </div><br/>
               <div>
                 {item.violations}

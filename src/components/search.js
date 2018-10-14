@@ -10,6 +10,8 @@ class Search extends Component {
       suggestions: []
     }
     // console.log(this.props.items)
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.getSuggestions = this.getSuggestions.bind(this);
   }
 
   componentDidMount() {
