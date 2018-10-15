@@ -2,18 +2,6 @@ import React, { Component } from 'react';
 import '../styles/detail.scss';
 
 class Detail extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     item: []
-  //   }
-  // }
-
-  // componentDidMount() {
-  //   this.setState({
-  //     item: this.props.item
-  //   })
-  // }
 
   render() {
     console.log(this.props.item)
