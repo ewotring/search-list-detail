@@ -83,11 +83,14 @@ class List extends Component {
               }
               }
             >
+            <div class='image-placeholder'>
+              <div class='image-proper'></div>
+            </div>
             <div class='list-item-titles'>
               <div class='business-name'>{item.dba_name}</div>
               <div class='facility-type'>{item.facility_type}</div>
             </div>
-              <div class='violations'>{item.violations}</div><br/>
+              <div class='violations'>Violations: {item.violations}</div><br/>
             </li>
           ))}
         </ul>
