@@ -17,6 +17,8 @@ You may serve it with a static server:
 
 - I used an empty box generated with CSS to hold a place for an image in the list and detail views.
 
+- I chose to use .scss extensions instead of .sass extensions because my editor made it easier to select colors with that extension.
+
 ## Further Details
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
