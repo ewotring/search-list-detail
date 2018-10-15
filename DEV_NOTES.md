@@ -1,5 +1,9 @@
 Notes from Erik about this App:
-- To deploy, run 'npm install' then 'npm start'
+- The build folder is ready to be deployed.
+You may serve it with a static server:
+
+  yarn global add serve
+  serve -s build
 
 - I added a little functionality that required a slight deviation from the mock-up for the list view. I kept the search form active. If the user performs another search, the list updates for that search. If the search is submitted with a blank search string, the full list is displayed.
 
