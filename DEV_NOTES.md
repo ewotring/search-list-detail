@@ -1,4 +1,6 @@
 Notes from Erik about this App:
+- To deploy, run 'npm install' then 'npm start'
+
 - I added a little functionality that required a slight deviation from the mock-up for the list view. I kept the search form active. If the user performs another search, the list updates for that search. If the search is submitted with a blank search string, the full list is displayed.
 
 This functionality continues into the detail view. Once in a detail view, the user can perform a new search, and the list results for that search will replace the detail view.
@@ -7,3 +9,4 @@ This functionality continues into the detail view. Once in a detail view, the us
 
 Nonetheless, I could build this feature if it were strictly required. I would probably assign an incrementing key to each list item, and have the "Next" button increase the starting key by five. The "Previous" button would decrease the starting key by five, until the key of the first list item was less than five. At present, the key for each list item is that item's inspection_id from the API data.
 
+- I used an empty box generated with CSS to hold a place for an image in the list and detail views.
