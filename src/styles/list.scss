@@ -1,0 +1,27 @@
+ul {
+  list-style-type: none;
+  padding: 0;
+  li {
+    background-color: #ffffff;
+    margin: 3%;
+    border-style: solid;
+    border-color: #d8d8d8;
+    border-width: 1.5px;
+    .list-item-titles {
+      display: flex;
+      flex-direction: row;
+      justify-content: right;
+      align-items: flex-end;
+      .business-name {
+        margin: 4px;
+        font-weight: bold;
+        font-size: 150%;
+      }
+      .facility-type {
+        margin: 4px;
+        font-weight: bold;
+        color: #b7b7b7;
+      }
+    }
+  }
+}

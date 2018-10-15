@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 // import List from './components/list';
 // import AutoSuggest from './components/autosuggest'
 // import AutoComplete from './components/autocomplete'

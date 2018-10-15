@@ -20,6 +20,7 @@ class Detail extends Component {
     return(
       <div>
         <div>Business name: {item.dba_name}</div><br/><br/>
+        <div>Facility type: {item.facility_type}</div><br/><br/>
         <div>Address: {item.address}</div><br /><br />
         <div>City: {item.city}</div><br /><br />
         <div>Zip: {item.zip}</div><br /><br />

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import List from './list'
+import '../styles/search.scss';
 
 class Search extends Component {
   constructor(props) {
@@ -96,7 +97,7 @@ class Search extends Component {
     // } else {
       // console.log(this.state.showList)
       return (
-        <div>
+        <div class='search-container'>
           <form onSubmit={
             event => {
             event.preventDefault();
@@ -104,12 +105,14 @@ class Search extends Component {
           }
             }>
             <input
+              class='search-input'
               placeholder="Search"
               ref={input => this.search = input}
               onChange={this.handleInputChange}
             />
             {/* <p>{this.state.query}</p> */}
             <input
+              class='search-button'
               type="submit"
               value="Search"
             />

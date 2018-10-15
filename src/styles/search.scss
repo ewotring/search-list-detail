@@ -1,0 +1,31 @@
+.search-container {
+  // I chose .scss instead of .sass because it was easier to select colors in my text editor.
+  background-color: #ececec;
+  width: 80%;
+  margin: 3% auto 3% auto;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #d8d8d8;
+  form {
+    width: 100%;
+    margin: 2% 0 2% 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    .search-input {
+      width: 75%;
+      border-color: #a2a2a2;
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 5px;
+      margin: 10px;
+    }
+    .search-button {
+      margin: 10px;
+      width: 15%;
+      border-radius: 5px;
+      background-image: linear-gradient(to top, rgb(159, 159, 159), rgb(218, 218, 218));
+    }
+  }
+}

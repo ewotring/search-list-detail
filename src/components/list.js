@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Detail from './detail';
-
+import '../styles/list.scss'
 class List extends Component {
   // constructor(props) {
   //   super(props);
@@ -83,12 +83,11 @@ class List extends Component {
               }
               }
             >
-              <div>
-                {item.dba_name}
-              </div><br/>
-              <div>
-                {item.violations}
-              </div><br/>
+            <div class='list-item-titles'>
+              <div class='business-name'>{item.dba_name}</div>
+              <div class='facility-type'>{item.facility_type}</div>
+            </div>
+              <div class='violations'>{item.violations}</div><br/>
             </li>
           ))}
         </ul>
