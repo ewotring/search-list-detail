@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../styles/detail.scss';
 
 class Detail extends Component {
   // constructor(props) {
@@ -18,16 +19,16 @@ class Detail extends Component {
     console.log(this.props.item)
     const item = this.props.item
     return(
-      <div>
-        <div>Business name: {item.dba_name}</div><br/><br/>
-        <div>Facility type: {item.facility_type}</div><br/><br/>
-        <div>Address: {item.address}</div><br /><br />
-        <div>City: {item.city}</div><br /><br />
-        <div>Zip: {item.zip}</div><br /><br />
-        <div>Inspection date: {item.inspection_date}</div><br /><br />
-        <div>Results: {item.results}</div><br /><br />
-        <div>Risk: {item.risk}</div><br /><br />
-        <div>Violations: {item.violations}</div><br /><br />
+      <div class='detail-container'>
+        <div>Business name: {item.dba_name}</div>
+        <div>Facility type: {item.facility_type}</div>
+        <div>Address: {item.address}</div>
+        <div>City: {item.city}</div>
+        <div>Zip: {item.zip}</div>
+        <div>Inspection date: {item.inspection_date}</div>
+        <div>Results: {item.results}</div>
+        <div>Risk: {item.risk}</div>
+        <div>Violations: {item.violations}</div>
       </div>
     )
   }

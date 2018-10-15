@@ -90,7 +90,14 @@ class List extends Component {
               <div class='business-name'>{item.dba_name}</div>
               <div class='facility-type'>{item.facility_type}</div>
             </div>
-              <div class='violations'>Violations: {item.violations}</div><br/>
+              <div class='list-details'>
+                <div>Address: {item.address}</div>
+                <div>City: {item.city}</div>
+                <div>Zip: {item.zip}</div>
+                <div>Inspection date: {item.inspection_date}</div>
+                <div>Results: {item.results}</div>
+                <div>Risk: {item.risk}</div>
+              </div>
             </li>
           ))}
         </ul>
